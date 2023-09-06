@@ -1,0 +1,146 @@
+*{
+    font-family: "Varela Round";
+}
+body{
+    background-color: #35805c;
+}
+.toDoList{
+    width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 400px;
+}
+.toDoList div{
+    float: left;
+    width: 200px;
+    margin:0;
+    padding: 0;
+    height:400px;
+    vertical-align: top;
+
+}
+.toDoList .subDiv:nth-child(even){
+    background-color: #B9F6CA;
+}
+.toDoList .subDiv:nth-child(odd){
+    background-color: #69F0AE;
+}
+
+
+.toDoList div h4{
+    text-align: center;
+    background-color: #54c58f;
+   
+    margin: 0;
+    padding: 10px;
+}
+
+.toDoList #addToDo{
+    padding: 7px;
+    width:170px;
+    margin: 10px auto;
+    display: block;
+    background-color: #419e71;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s all;
+
+   
+}
+.toDoList #addToDo:active{
+    background-color: #52c08b;
+}
+
+.toDoList p.toDo{
+    padding: 7px;
+    width:157px;
+    margin: 10px auto;
+    display: block;
+    background-color: #54c58f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+i.removeToDo{
+    float: right;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+div#modal{
+    background-color: white;
+    width: 270px;
+    height: 120px;
+    padding: 0;
+    border-radius: 5px;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: showModal forwards 1.2s;
+    animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    display: none;
+    transition: 0.3s all;
+    
+}
+
+@keyframes showModal{
+    100%{
+        top: 40%;
+    }
+}
+
+#modal p{
+    margin: 0 0 2px 0;
+    padding: 7px 5px 7px 10px;
+    font-size: 14px;
+   background-color: #E0E0E0;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+
+}
+
+#modal input{
+display: block;
+margin: 10px auto 8px auto;
+width: 85%;
+height: 25px;
+font-size: 14px;
+}
+
+#modal input:focus{
+outline-color: #54c58f;
+}
+
+#modal button{
+    display: block;
+    margin: 0 auto;
+    width: 88%;
+    background-color: #54c58f;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s all;
+} 
+
+#modal button:active{
+background-color: #48ad7c;
+}
+
+#closeModal{
+    float: right;
+    margin-right: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+

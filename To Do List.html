@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To DO List</title>
+    <link rel="stylesheet" href="To Do List.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <script src="https://kit.fontawesome.com/cfa60e452d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="modal">
+        <p>Add ToDo <i class="fa-solid fa-xmark" id="closeModal"></i></p>
+        <input type="text" name="" id="newToDo">
+        <button id="modalButton">Add</button>
+
+    </div>
+   <div class="toDoList" id="listBox">
+    <div class="subDiv">
+        <h4>No Status</h4>
+        <button id="addToDo"><i class="fa-solid fa-plus"></i> Add ToDo</button>
+       <div  id="noStatus">
+
+       </div>
+
+    </div>
+    <div class="subDiv">
+        <h4>Not Started</h4>
+        <div id="notStarted">
+
+        </div>
+    </div>
+    <div class="subDiv">
+        <h4>In Progress</h4>
+        <div id="inProgress">
+
+        </div>
+    </div>
+    <div class="subDiv" >
+        <h4>Completed</h4>
+        <div id="completed">
+
+        </div>
+
+    </div>
+
+   </div>
+    <script src="To Do List.js"></script>
+</body>
+</html>
