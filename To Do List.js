@@ -28,8 +28,11 @@ function addNewToDoUsingButton(){
     newPElem.classList.add("toDo");
     noStatusBox.append(newPElem);
     newPElem.setAttribute("draggable","true");
-    newPElem.addEventListener("drag", function(event){
-    draggedToDo=event.target;
+    newPElem.addEventListener("dragstart", (e)=>{
+        e.dataTransfer.setData('Text',newPElem.innerHTML);
+    });
+    newPElem.addEventListener("dragend", (e)=>{
+        e.target.remove();
     });
     newPElem.firstElementChild.addEventListener("click", function(event){
         event.target.parentElement.remove();
@@ -48,8 +51,11 @@ function addNewToDoUsingEnter(event){
     newPElem.classList.add("toDo");
     noStatusBox.append(newPElem);
     newPElem.setAttribute("draggable","true");
-    newPElem.addEventListener("drag", function(event){
-    draggedToDo=event.target;
+    newPElem.addEventListener("dragstart", (e)=>{
+        e.dataTransfer.setData('Text',newPElem.innerHTML);
+    });
+    newPElem.addEventListener("dragend", (e)=>{
+        e.target.remove();
     });
     newPElem.firstElementChild.addEventListener("click", function(event){
         event.target.parentElement.remove();
@@ -57,42 +63,27 @@ function addNewToDoUsingEnter(event){
     }
 }
 
-noStatusBox.addEventListener("dragover", function(event){
-    event.preventDefault();
-});
-completedBox.addEventListener("dragover", function(event){
-    event.preventDefault();
-});
-inProgressBox.addEventListener("dragover",function(event){
-    event.preventDefault();
-});
-notStartedBox.addEventListener("dragover", function(event){
-    event.preventDefault();
-});
+//dropping a toDo in a box
+document.querySelectorAll('.toDoList .subDiv div').forEach(div=>{
+    div.addEventListener('dragover', (e)=>e.preventDefault());
+    div.addEventListener('drop', (e)=>{
+      let newPElem=document.createElement("p");
+      newPElem.innerHTML=e.dataTransfer.getData('text');
+      newPElem.classList.add("toDo");
+      div.append(newPElem);
+      newPElem.setAttribute("draggable","true");
+      newPElem.addEventListener("dragstart", (e)=>{
+          e.dataTransfer.setData('Text',newPElem.innerHTML);
+      });
+      newPElem.addEventListener("dragend", (e)=>{
+          e.target.remove();
+      });
+      newPElem.firstElementChild.addEventListener("click", function(event){
+          event.target.parentElement.remove();
+      });
+    })
 
-
-noStatusBox.addEventListener("drop", function(event){
-    event.target.append(draggedToDo);
-    newToDo.setAttribute("draggable","true");
-});
-
-
-completedBox.addEventListener("drop", function(event){
-    event.target.append(draggedToDo);
-    newToDo.setAttribute("draggable","true");
-});
-
-
-inProgressBox.addEventListener("drop", function(event){
-    event.target.append(draggedToDo);
-    newToDo.setAttribute("draggable","true");
-});
-
-
-notStartedBox.addEventListener("drop", function(event){
-    event.target.append(draggedToDo);
-    newToDo.setAttribute("draggable","true");
-});
+})
 
 
 
